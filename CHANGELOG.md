@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **`@opencode-ai/sdk` bumped to `^1.18.11`** - The latest SDK renames event types from `Event*` to plain names and describes events with a `data` payload envelope. The provider reads both `properties` and `data` payloads (and treats the envelope as optional) so it works with current and future OpenCode servers, and keeps accepting `Event*`-shaped events for backwards compatibility with older SDKs/servers.
+- **AI SDK v7 migration** - The provider now implements the V4 provider interfaces (`LanguageModelV4` / `ProviderV4`, `specificationVersion: "v4"`) and requires `@ai-sdk/provider ^4.0.4`, `@ai-sdk/provider-utils ^5.0.18`, and `ai ^7.0.47`. `reasoning` model call options are unsupported (warned and ignored via `logUnsupportedCallOptions`), and `reasoning-file` output parts are converted as a no-op with debug logging.
+- **Node.js >= 22** - The package now requires **Node.js >= 22** and is built for the `node22` target. The CI matrix covers Node 22 and 24.
+- **File data parts** - Per AI SDK v7, `reference` file input parts are unsupported and skipped with a warning.
+
 ### Fixed
 
 - **Silent permission reply failures** ([#35](https://github.com/ben-vargas/ai-sdk-provider-opencode-sdk/pull/35)) - `replyToPendingApprovals` never inspected the resolved value of `permission.reply`. Managed clients use `responseStyle: "fields"` without `throwOnError`, so API-level failures resolve as `{ error }` instead of throwing — a failed reply was silently recorded as replied and never retried, leaving OpenCode waiting on the permission request. The result is now checked via `extractSdkResult` (matching the question-reply handling): on error, a warning is logged and surfaced in the response `warnings`, and the approval id is not recorded as replied so the next turn retries it.
