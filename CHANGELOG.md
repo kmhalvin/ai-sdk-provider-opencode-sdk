@@ -5,10 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [4.0.0] - 2026-08-04
 
 ### Changed
 
+- **ESM-only package** - The package no longer ships a CommonJS build (`dist/index.cjs`, `dist/index.d.cts` are gone, and the `require` export condition was removed). `@ai-sdk/provider@4` and `ai@7` are ESM-only, so v7 consumers are already ESM; CommonJS consumers must use Node `>= 22.12` `require(esm)` or migrate to `import`.
 - **`@opencode-ai/sdk` bumped to `^1.18.11`** - The latest SDK renames event types from `Event*` to plain names and describes events with a `data` payload envelope instead of `properties`. The provider keeps its `Event*`-styled local event interfaces but reads each event's payload from whichever envelope a server emits (`properties` or `data`, treated as optional), so it works with current and future OpenCode servers and older SDKs/servers alike.
 - **AI SDK v7 migration** - The provider now implements the V4 provider interfaces (`LanguageModelV4` / `ProviderV4`, `specificationVersion: "v4"`) and requires `@ai-sdk/provider ^4.0.4`, `@ai-sdk/provider-utils ^5.0.18`, and `ai ^7.0.47`. `reasoning` model call options are unsupported (warned and ignored via `logUnsupportedCallOptions`), and `reasoning-file` output parts are converted as a no-op with debug logging.
 - **Node.js >= 22** - The package now requires **Node.js >= 22** and is built for the `node22` target. The CI matrix covers Node 22 and 24.

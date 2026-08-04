@@ -1,6 +1,6 @@
 {
   "name": "ai-sdk-provider-opencode-sdk",
-  "version": "3.0.6",
+  "version": "4.0.0",
   "description": "AI SDK v7 provider for OpenCode via @opencode-ai/sdk",
   "keywords": [
     "ai-sdk",
@@ -21,7 +21,6 @@
   "author": "Ben Vargas",
   "type": "module",
   "sideEffects": false,
-  "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -30,10 +29,6 @@
       "import": {
         "types": "./dist/index.d.ts",
         "default": "./dist/index.js"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
       }
     }
   },
