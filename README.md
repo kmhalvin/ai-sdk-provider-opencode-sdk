@@ -9,7 +9,7 @@
 
 # AI SDK Provider for OpenCode
 
-> **Latest Release**: Version 4.x supports AI SDK v7. Version 3.x is the previous AI SDK v6 line. For AI SDK v5 support, use the `ai-sdk-v5` tag (0.x.x).
+> **Latest Release**: Version 4.x supports AI SDK v7. Version 3.x moves to maintenance for AI SDK v6 under the `ai-sdk-v6` tag.
 
 A community provider for the [Vercel AI SDK](https://sdk.vercel.ai/docs) that enables using AI models through [OpenCode](https://opencode.ai) and the `@opencode-ai/sdk/v2` APIs. OpenCode is a terminal-based AI coding assistant that supports multiple providers (Anthropic, OpenAI, Google, and more).
 
@@ -20,10 +20,10 @@ This provider enables you to use OpenCode's AI capabilities through the familiar
 | Provider Version | AI SDK Version | NPM Tag     | Status      | Branch                                                                                   |
 | ---------------- | -------------- | ----------- | ----------- | ---------------------------------------------------------------------------------------- |
 | 4.x.x            | v7             | `latest`    | Stable      | `main`                                                                                   |
-| 3.x.x            | v6             | N/A         | Legacy      | historical                                                                               |
+| 3.x.x            | v6             | `ai-sdk-v6` | Maintenance | [`ai-sdk-v6`](https://github.com/ben-vargas/ai-sdk-provider-opencode-sdk/tree/ai-sdk-v6) |
 | 2.x.x            | v6             | N/A         | Legacy      | historical                                                                               |
 | 1.x.x            | v6             | N/A         | Legacy      | historical                                                                               |
-| 0.x.x            | v5             | `ai-sdk-v5` | Maintenance | [`ai-sdk-v5`](https://github.com/ben-vargas/ai-sdk-provider-opencode-sdk/tree/ai-sdk-v5) |
+| 0.x.x            | v5             | `ai-sdk-v5` | Legacy      | [`ai-sdk-v5`](https://github.com/ben-vargas/ai-sdk-provider-opencode-sdk/tree/ai-sdk-v5) |
 
 ## Breaking Changes in 4.0.0
 
@@ -56,7 +56,7 @@ npm install ai-sdk-provider-opencode-sdk ai@^7.0.0
 **For AI SDK v6:**
 
 ```bash
-npm install ai-sdk-provider-opencode-sdk@3 ai@^6.0.0
+npm install ai-sdk-provider-opencode-sdk@ai-sdk-v6 ai@^6.0.0
 ```
 
 **For AI SDK v5:**
